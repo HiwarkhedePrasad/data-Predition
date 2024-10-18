@@ -11,13 +11,14 @@ export default function Home() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null); // Reset error
-
         try {
-            const response = await axios.post('./api/chat/routes.js', { message });
+            const response = await axios.post('/api/chat', { message }); 
+            console.log(response);// Adjusted to '/api/chat'
             setReply(response.data.reply);
         } catch (err) {
             setError('Error communicating with ChatGPT');
         }
+        
     };
 
     return (
